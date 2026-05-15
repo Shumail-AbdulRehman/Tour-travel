@@ -72,14 +72,14 @@ export function Navbar({ activePage }) {
 
       <div
         id="mobile-menu"
-        className={`${isMobileMenuOpen ? "block" : "hidden"} space-y-3 border-t border-gold-400/20 px-4 pb-4 transition-colors sm:hidden ${mobileMenuSurface}`}
+        className={`${isMobileMenuOpen ? "block" : "hidden"} border-t border-gold-400/20 px-4 pb-3 transition-colors sm:hidden ${mobileMenuSurface}`}
       >
         {navigationLinks.map((link) => (
           <a
             key={link.page}
             href={link.href}
             onClick={handleNavClick}
-            className={`block py-2 text-white/80 transition hover:text-gold-400 ${
+            className={`block border-b border-gold-400/25 py-3 text-sm font-semibold text-white/82 transition hover:border-gold-300 hover:text-gold-300 ${
               activePage === link.page ? "text-gold-400" : ""
             }`}
           >

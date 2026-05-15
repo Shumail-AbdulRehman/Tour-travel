@@ -72,7 +72,7 @@ export const pageKeys = [
 
 export const navigationLinks = [
   { href: "#home", label: "Home", page: "home" },
-  { href: "#locations", label: "Locations", page: "locations" },
+  { href: "#locations", label: "Destinations", page: "locations" },
   { href: "#packages", label: "Packages", page: "packages" },
   { href: "#rent", label: "Rent", page: "rent" },
   { href: "#about", label: "About", page: "about" },
