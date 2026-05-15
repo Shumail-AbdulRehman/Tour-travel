@@ -79,8 +79,8 @@ export function Navbar({ activePage }) {
             key={link.page}
             href={link.href}
             onClick={handleNavClick}
-            className={`block border-b border-gold-400/25 py-3 text-sm font-semibold text-white/82 transition hover:border-gold-300 hover:text-gold-300 ${
-              activePage === link.page ? "text-gold-400" : ""
+            className={`block border-b border-gold-400/35 py-3 text-sm font-bold tracking-wide transition hover:border-gold-300 hover:text-gold-300 ${
+              activePage === link.page ? "text-gold-300" : "text-white"
             }`}
           >
             {link.label}
