@@ -80,9 +80,9 @@ export const navigationLinks = [
 ];
 
 export const hero = {
-  image: imagePath("hero-skardu.webp"),
+  image: imagePath("hero-video-poster.webp"),
   video: "/videos/hero-snow-mountain-sunset-720.mp4",
-  alt: "Stunning view of Skardu's mountain peaks with clouds and snow",
+  alt: "Snowy mountain valley at sunset",
   tagline: "Explore Northern Pakistan",
   title: "Discover the Untamed Beauty of Northern Pakistan",
   description:
