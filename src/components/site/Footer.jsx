@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import ownerPortrait from "../../../media/owner1.jpeg";
 import { BrandLogo } from "./BrandLogo.jsx";
 
 export function Footer({ business, navigation }) {
@@ -6,7 +8,7 @@ export function Footer({ business, navigation }) {
 
   return (
     <footer className="bg-navy-900 px-4 py-12 text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.66fr)_minmax(0,0.34fr)_minmax(0,0.52fr)] lg:items-start">
         <div>
           <div className="flex items-center gap-3">
             <BrandLogo className="h-12 w-12 shrink-0" dark />
@@ -36,39 +38,60 @@ export function Footer({ business, navigation }) {
           </div>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2">
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Explore</h3>
-            <ul className="mt-4 space-y-3">
-              {navigation.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-sm text-white/75 hover:text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        <div>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Leadership</p>
+          <div className="mt-4 flex items-start gap-4 sm:gap-5">
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[1.6rem] bg-white/5 ring-1 ring-white/12 sm:h-28 sm:w-28">
+              <Image
+                src={ownerPortrait}
+                alt="Portrait of the CEO and Co-Founder of Abid Tour & Travels"
+                fill
+                sizes="(min-width: 640px) 112px, 96px"
+                className="object-cover object-[center_14%]"
+              />
+            </div>
+            <div className="min-w-0 pt-1">
+              <h3 className="text-[1.15rem] font-black leading-tight text-white">CEO &amp; Co-Founder</h3>
+              <p className="mt-1 text-sm font-medium text-white/72">Abid Tour & Travels</p>
+              <p className="mt-2 text-sm leading-6 text-white/62">
+                Real route planning and practical trip pacing from the agency side.
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Contact</h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/75">
-              <li>
-                <a href={`tel:${business.phone}`} className="hover:text-white">
-                  {business.phoneDisplay}
-                </a>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Explore</h3>
+          <ul className="mt-4 space-y-3">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-sm text-white/75 hover:text-white">
+                  {item.label}
+                </Link>
               </li>
-              <li>
-                <a href={`mailto:${business.email}`} className="hover:text-white">
-                  {business.email}
-                </a>
-              </li>
-              <li>
-                <a href={business.mapUrl} target="_blank" rel="noreferrer" className="hover:text-white">
-                  {business.address}
-                </a>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Contact</h3>
+          <ul className="mt-4 space-y-3 text-sm text-white/75">
+            <li>
+              <a href={`tel:${business.phone}`} className="hover:text-white">
+                {business.phoneDisplay}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${business.email}`} className="hover:text-white">
+                {business.email}
+              </a>
+            </li>
+            <li>
+              <a href={business.mapUrl} target="_blank" rel="noreferrer" className="hover:text-white">
+                {business.address}
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 

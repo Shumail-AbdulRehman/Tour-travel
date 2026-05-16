@@ -13,6 +13,14 @@ export function Header({ navigation, phoneDisplay }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  function isNavItemActive(href) {
+    if (href === "/") {
+      return pathname === href;
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
+
   useEffect(() => {
     if (!isHomePage) {
       setIsScrolled(true);
@@ -42,13 +50,10 @@ export function Header({ navigation, phoneDisplay }) {
 
   const isTransparent = isHomePage && !isScrolled;
   const headerClassName = isTransparent
-    ? "border-transparent bg-transparent text-white"
+    ? "border-transparent bg-[linear-gradient(180deg,rgba(7,15,34,0.68),rgba(7,15,34,0.26),transparent)] text-white"
     : "border-b border-navy-100 bg-white text-navy-900 shadow-[0_14px_30px_-24px_rgba(9,20,40,0.28)]";
   const brandTextClassName = isTransparent ? "text-white" : "text-navy-900";
   const eyebrowClassName = isTransparent ? "text-white/72" : "text-slate-500";
-  const navLinkClassName = isTransparent
-    ? "rounded-full px-4 py-2 text-sm font-semibold text-white/88 transition hover:bg-white/10 hover:text-white"
-    : "rounded-full px-4 py-2 text-sm font-semibold text-navy-800 transition hover:bg-navy-50 hover:text-gold-600";
   const phoneClassName = isTransparent ? "text-sm font-semibold text-white/80" : "text-sm font-semibold text-slate-600";
   const menuButtonClassName = isTransparent
     ? "flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-white/8 text-white"
@@ -56,7 +61,7 @@ export function Header({ navigation, phoneDisplay }) {
 
   return (
     <>
-      <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${headerClassName}`}>
+      <header className={`fixed inset-x-0 top-0 z-50 backdrop-blur-[10px] transition-all duration-300 ${headerClassName}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <Link href="/" className={`flex items-center gap-3 no-underline ${brandTextClassName}`}>
             <BrandLogo className="h-11 w-11 shrink-0" dark={isTransparent} />
@@ -69,11 +74,22 @@ export function Header({ navigation, phoneDisplay }) {
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-2 lg:flex">
-            {navigation.map((item) => (
-              <Link key={item.href} href={item.href} className={navLinkClassName}>
-                {item.label}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = isNavItemActive(item.href);
+              const navLinkClassName = isTransparent
+                ? isActive
+                  ? "rounded-full bg-white/14 px-4 py-2 text-sm font-semibold text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.16)] transition"
+                  : "rounded-full px-4 py-2 text-sm font-semibold text-white/88 transition hover:bg-white/10 hover:text-white"
+                : isActive
+                  ? "rounded-full bg-navy-900 px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_22px_-16px_rgba(9,20,40,0.45)] transition"
+                  : "rounded-full px-4 py-2 text-sm font-semibold text-navy-800 transition hover:bg-navy-50 hover:text-gold-600";
+
+              return (
+                <Link key={item.href} href={item.href} className={navLinkClassName} aria-current={isActive ? "page" : undefined}>
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
@@ -122,15 +138,24 @@ export function Header({ navigation, phoneDisplay }) {
           />
           <div className="absolute inset-x-4 top-[4.8rem] rounded-[2rem] border border-navy-100 bg-white p-4 shadow-[0_30px_80px_-36px_rgba(9,20,40,0.42)]">
             <nav aria-label="Mobile" className="grid gap-2">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-2xl px-4 py-3 text-sm font-semibold text-navy-800 transition hover:bg-navy-50"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                const isActive = isNavItemActive(item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={
+                      isActive
+                        ? "rounded-2xl bg-navy-900 px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_-22px_rgba(9,20,40,0.55)] transition"
+                        : "rounded-2xl px-4 py-3 text-sm font-semibold text-navy-800 transition hover:bg-navy-50"
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <a
                 href={`tel:${phoneDisplay.replace(/\s+/g, "")}`}
                 className="rounded-2xl border border-navy-100 px-4 py-3 text-sm font-semibold text-slate-700"
