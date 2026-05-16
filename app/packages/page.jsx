@@ -16,6 +16,24 @@ export const metadata = buildMetadata({
   keywords: ["Northern Pakistan packages", "Skardu package", "Hunza honeymoon package", "family travel package Pakistan"],
 });
 
+const packageFitNotes = [
+  {
+    title: "Shorter packages reduce friction",
+    description:
+      "For school breaks, first-time northern travel, and family-led planning, a shorter package often performs better because the traveler can understand the route quickly and picture the pace without uncertainty.",
+  },
+  {
+    title: "Longer routes need stronger justification",
+    description:
+      "As package length increases, travelers usually need clearer reasons to choose it: better photography coverage, more comfortable honeymoon pacing, multi-valley movement, or a more private premium itinerary shape.",
+  },
+  {
+    title: "Destination and package intent overlap",
+    description:
+      "Many users search for both a route and a package format at the same time. That is why a good packages page should explain trip shape clearly while still connecting users to destination pages with stronger place-specific detail.",
+  },
+];
+
 export default function PackagesPage() {
   return (
     <>
@@ -40,7 +58,7 @@ export default function PackagesPage() {
           />
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {packages.map((travelPackage) => (
-              <PackageCard key={travelPackage.id} travelPackage={travelPackage} />
+              <PackageCard key={travelPackage.id} travelPackage={travelPackage} showPrice={false} />
             ))}
           </div>
         </div>
@@ -75,6 +93,25 @@ export default function PackagesPage() {
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {featuredLocationPackages.map((travelPackage) => (
               <LocationPackageCard key={travelPackage.id} travelPackage={travelPackage} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading
+            eyebrow="Decision Signals"
+            title="What usually moves a traveler from comparing packages to requesting a quote."
+            description="Package pages are strongest when they answer the practical question behind the search: not just where the trip goes, but why this route depth, this pacing, and this package shape make sense for the traveler."
+            align="left"
+          />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {packageFitNotes.map((note) => (
+              <article key={note.title} className="rounded-[1.75rem] bg-white p-6 shadow-lg shadow-navy-900/5 ring-1 ring-navy-100">
+                <h2 className="text-xl font-black text-navy-900">{note.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{note.description}</p>
+              </article>
             ))}
           </div>
         </div>
