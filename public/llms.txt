@@ -1,0 +1,23 @@
+# Abid Tour & Travels
+
+Abid Tour & Travels is a Northern Pakistan travel company focused on private tours, family travel packages, honeymoon routes, and vehicle rentals with drivers.
+
+Primary pages:
+- https://www.abidtourandtravels.pk/
+- https://www.abidtourandtravels.pk/locations
+- https://www.abidtourandtravels.pk/packages
+- https://www.abidtourandtravels.pk/rent
+- https://www.abidtourandtravels.pk/about
+- https://www.abidtourandtravels.pk/contact
+
+Key destination guides:
+- https://www.abidtourandtravels.pk/locations/skardu
+- https://www.abidtourandtravels.pk/locations/hunza
+- https://www.abidtourandtravels.pk/locations/swat
+- https://www.abidtourandtravels.pk/locations/kashmir
+- https://www.abidtourandtravels.pk/locations/naran-kaghan
+
+Business contact:
+- Phone: +92 346 505 6656
+- Email: info@abidtourandtravels.pk
+- Address: Next to Monal, Sakhi Plaza, Murree Rd, Saddar, Rawalpindi, 46000, Pakistan
