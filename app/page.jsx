@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FAQSection } from "../src/components/site/FAQSection.jsx";
+import { HeroBackgroundMedia } from "../src/components/site/HeroBackgroundMedia.jsx";
 import { LocationPackageCard } from "../src/components/site/LocationPackageCard.jsx";
 import { PackageCard } from "../src/components/site/PackageCard.jsx";
 import { SectionHeading } from "../src/components/site/SectionHeading.jsx";
@@ -46,26 +46,12 @@ export default function HomePage() {
           className="relative min-h-[50rem]"
           style={{ minHeight: "max(50rem, calc(100dvh - 69px))" }}
         >
-          <Image
-            src={homeHero.image}
-            alt={homeHero.imageAlt}
-            fill
+          <HeroBackgroundMedia
+            imageSrc={homeHero.image}
+            imageAlt={homeHero.imageAlt}
+            videoSrc={homeHero.video}
             priority
-            sizes="100vw"
-            className="object-cover"
           />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={homeHero.image}
-            aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source src={homeHero.video} type="video/mp4" />
-          </video>
           <div className="hero-overlay absolute inset-0" />
           <div
             className="relative z-10 mx-auto flex min-h-[50rem] max-w-7xl items-center px-4 py-24 sm:px-6 lg:py-32"
@@ -83,20 +69,6 @@ export default function HomePage() {
                 <Link href={homeHero.secondaryCta.href} className="rounded-full border border-white/20 px-6 py-3 font-bold text-white no-underline hover:border-white/40">
                   {homeHero.secondaryCta.label}
                 </Link>
-              </div>
-              <div className="mt-10 grid gap-3 sm:grid-cols-3">
-                <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                  <p className="font-display text-3xl font-black text-white">10+</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Featured destinations</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                  <p className="font-display text-3xl font-black text-white">11</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Vehicle options</p>
-                </div>
-                <div className="rounded-3xl bg-white/10 p-4 backdrop-blur">
-                  <p className="font-display text-3xl font-black text-white">Private</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Trip coordination</p>
-                </div>
               </div>
             </div>
           </div>
