@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Header({ navigation, phoneDisplay }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-navy-100/80 bg-white/92 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-navy-100 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-3 text-navy-900 no-underline">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy-900 text-sm font-black text-gold-300">

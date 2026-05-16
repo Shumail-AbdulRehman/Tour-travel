@@ -11,7 +11,6 @@ import {
   popularLocationPackages,
   reasons,
   rentals,
-  testimonials,
 } from "../data/siteData.js";
 
 const destinationEnhancements = {
@@ -240,13 +239,13 @@ export const homeHero = {
     "Plan Skardu, Hunza, Swat, Kashmir, Naran Kaghan, and custom northern routes with a travel agency focused on realistic pacing, private transport, and cleaner trip execution.",
   image: legacyHero.image,
   imageAlt: legacyHero.alt,
+  video: "/videos/hero/hero-background.mp4",
   primaryCta: { href: "/locations", label: "Explore Destinations" },
   secondaryCta: { href: "/contact", label: "Plan My Trip" },
 };
 
 export const pageArt = pageImages;
 export const trustReasons = reasons;
-export const socialProof = testimonials;
 
 export const packages = legacyPackages.map((item) => ({
   ...item,
@@ -266,6 +265,33 @@ export const featuredLocationPackages = popularLocationPackages.map((item) => ({
 }));
 
 export const destinationGuides = details;
+
+export const travelMoments = [
+  {
+    src: "/images/customer-trips/customer-trip-3.jpeg",
+    alt: "Travelers on a scenic Northern Pakistan trip arranged by Abid Tour & Travels.",
+    label: "Recent journey",
+    title: "Scenic route coverage",
+  },
+  {
+    src: "/images/customer-trips/customer-trip-1.jpeg",
+    alt: "Guests during a real Northern Pakistan tour with Abid Tour & Travels.",
+    label: "Private group",
+    title: "On-route travel moments",
+  },
+  {
+    src: "/images/customer-trips/customer-trip-2.jpeg",
+    alt: "A customer trip in Northern Pakistan coordinated by Abid Tour & Travels.",
+    label: "With our travelers",
+    title: "Trips we have recently covered",
+  },
+];
+
+export const travelMomentsVideo = {
+  src: "/videos/customer-trips/customer-trip-moments.mp4",
+  poster: "/images/customer-trips/customer-trip-video-poster.png",
+  title: "Route moments with our travelers",
+};
 
 export const rentalsCatalog = rentals.map((rental) => ({
   ...rental,

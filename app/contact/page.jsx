@@ -72,19 +72,20 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-4 pb-20">
-        <div className="mx-auto max-w-4xl rounded-[2rem] bg-white p-8 shadow-xl shadow-navy-900/10 sm:p-10">
+      <section className="bg-navy-50/70 px-4 py-20">
+        <div className="mx-auto flex max-w-7xl justify-center">
+          <div className="w-full max-w-4xl rounded-[2rem] bg-white p-8 shadow-[0_28px_70px_-34px_rgba(9,20,40,0.3)] ring-1 ring-navy-100 sm:p-10">
           <SectionHeading
             eyebrow="Before You Message"
             title="The four details that make itinerary replies faster and better."
             description="If you include these details in your email, WhatsApp message, or call, the route planning discussion becomes much clearer from the first reply."
             align="left"
           />
-          <ul className="mt-8 space-y-3 text-sm leading-7 text-slate-600">
-            <li>• Travel dates or at least a rough season.</li>
-            <li>• Number of travelers and whether children are included.</li>
-            <li>• Preferred destination or the kind of scenery you want.</li>
-            <li>• Whether you need a full package or only a vehicle with driver.</li>
+          <ul className="mt-8 grid gap-4 text-sm leading-7 text-slate-600 sm:grid-cols-2">
+            <li className="rounded-2xl bg-navy-50 px-4 py-4">Travel dates or at least a rough season.</li>
+            <li className="rounded-2xl bg-navy-50 px-4 py-4">Number of travelers and whether children are included.</li>
+            <li className="rounded-2xl bg-navy-50 px-4 py-4">Preferred destination or the kind of scenery you want.</li>
+            <li className="rounded-2xl bg-navy-50 px-4 py-4">Whether you need a full package or only a vehicle with driver.</li>
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/locations" className="rounded-full bg-navy-900 px-6 py-3 font-bold text-white no-underline hover:bg-navy-800">
@@ -94,6 +95,7 @@ export default function ContactPage() {
               Email the booking desk
             </a>
           </div>
+        </div>
         </div>
       </section>
     </>

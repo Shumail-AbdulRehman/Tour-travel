@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { DiscountCornerBadge } from "../DiscountCornerBadge.jsx";
 
-export function PackageCard({ travelPackage }) {
+export function PackageCard({ travelPackage, showPrice = true }) {
   return (
     <article className="relative overflow-hidden rounded-[1.75rem] bg-white shadow-lg shadow-navy-900/5 ring-1 ring-navy-100">
       <DiscountCornerBadge value={travelPackage.discountPercent} />
@@ -34,7 +34,7 @@ export function PackageCard({ travelPackage }) {
           ))}
         </ul>
         <div className="mt-6 flex items-center justify-between gap-4">
-          <p className="font-display text-lg font-black text-navy-700">{travelPackage.price}</p>
+          {showPrice ? <p className="font-display text-lg font-black text-navy-700">{travelPackage.price}</p> : <span />}
           <Link href={travelPackage.href} className="text-sm font-bold text-gold-700 hover:text-navy-900">
             Request quote →
           </Link>

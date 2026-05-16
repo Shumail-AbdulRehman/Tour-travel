@@ -5,6 +5,7 @@ import { LocationPackageCard } from "../src/components/site/LocationPackageCard.
 import { PackageCard } from "../src/components/site/PackageCard.jsx";
 import { SectionHeading } from "../src/components/site/SectionHeading.jsx";
 import { StructuredData } from "../src/components/site/StructuredData.jsx";
+import { TravelMomentsSection } from "../src/components/site/TravelMomentsSection.jsx";
 import {
   faqItems,
   featuredLocationPackages,
@@ -12,7 +13,8 @@ import {
   internalGuides,
   packages,
   planningSteps,
-  socialProof,
+  travelMoments,
+  travelMomentsVideo,
   trustReasons,
 } from "../src/lib/site-content.js";
 import { buildMetadata, getHomeSchemas } from "../src/lib/seo.js";
@@ -39,8 +41,11 @@ export default function HomePage() {
     <>
       <StructuredData data={schemas} />
 
-      <section className="relative isolate overflow-hidden">
-        <div className="relative min-h-[42rem]">
+      <section className="relative isolate overflow-hidden bg-navy-950">
+        <div
+          className="relative min-h-[50rem]"
+          style={{ minHeight: "max(50rem, calc(100dvh - 69px))" }}
+        >
           <Image
             src={homeHero.image}
             alt={homeHero.imageAlt}
@@ -49,14 +54,28 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover"
           />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={homeHero.image}
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full object-cover"
+          >
+            <source src={homeHero.video} type="video/mp4" />
+          </video>
           <div className="hero-overlay absolute inset-0" />
-          <div className="relative z-10 mx-auto flex min-h-[42rem] max-w-7xl items-center px-4 py-24 sm:px-6">
+          <div
+            className="relative z-10 mx-auto flex min-h-[50rem] max-w-7xl items-center px-4 py-24 sm:px-6 lg:py-32"
+            style={{ minHeight: "max(50rem, calc(100dvh - 69px))" }}
+          >
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-gold-300">{homeHero.eyebrow}</p>
               <h1 className="mt-5 font-display text-5xl font-black leading-tight text-white sm:text-6xl">
                 {homeHero.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/82">{homeHero.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href={homeHero.primaryCta.href} className="rounded-full bg-gold-500 px-6 py-3 font-bold text-navy-900 no-underline hover:bg-gold-400">
                   {homeHero.primaryCta.label}
@@ -83,6 +102,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <TravelMomentsSection items={travelMoments} video={travelMomentsVideo} />
 
       <section className="bg-white px-4 py-20">
         <div className="mx-auto max-w-7xl">
@@ -129,7 +150,7 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {packages.map((travelPackage) => (
-              <PackageCard key={travelPackage.id} travelPackage={travelPackage} />
+              <PackageCard key={travelPackage.id} travelPackage={travelPackage} showPrice={false} />
             ))}
           </div>
         </div>
@@ -171,24 +192,6 @@ export default function HomePage() {
                 <h2 className="mt-5 text-2xl font-black">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-white/75">{item.description}</p>
               </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-20">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Reviews"
-            title="Travelers respond best when the route, pacing, and support feel trustworthy."
-            description="Testimonials matter because travel services are high-trust purchases. Strong route pages, clear internal linking, and consistent contact details help search engines and users see the same thing: this is a real travel business with destination-specific expertise."
-          />
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {socialProof.map((review) => (
-              <blockquote key={review.author} className="rounded-[1.75rem] bg-navy-50 p-8 ring-1 ring-navy-100">
-                <p className="text-lg leading-8 text-slate-700">“{review.quote}”</p>
-                <footer className="mt-5 text-sm font-bold uppercase tracking-[0.18em] text-gold-700">{review.author}</footer>
-              </blockquote>
             ))}
           </div>
         </div>

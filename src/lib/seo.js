@@ -1,4 +1,4 @@
-import { business, destinationGuides, packages, siteSettings, socialProof } from "./site-content.js";
+import { business, destinationGuides, packages, siteSettings } from "./site-content.js";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteSettings.siteUrl).toString();
@@ -101,21 +101,6 @@ export function getBreadcrumbSchema(items) {
 }
 
 export function getHomeSchemas() {
-  const reviews = socialProof.map((review) => ({
-    "@context": "https://schema.org",
-    "@type": "Review",
-    author: {
-      "@type": "Person",
-      name: review.author,
-    },
-    reviewBody: review.quote,
-    itemReviewed: {
-      "@type": "TravelAgency",
-      name: business.name,
-      url: siteSettings.siteUrl,
-    },
-  }));
-
   return [
     {
       "@context": "https://schema.org",
@@ -125,7 +110,6 @@ export function getHomeSchemas() {
         "Homepage for Abid Tour & Travels covering private northern Pakistan tours, family packages, honeymoon trips, and vehicle rentals.",
       url: siteSettings.siteUrl,
     },
-    ...reviews,
   ];
 }
 
