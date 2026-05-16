@@ -13,6 +13,8 @@ import {
   rentals,
 } from "../data/siteData.js";
 
+export const contentLastUpdated = "2026-05-16";
+
 const destinationEnhancements = {
   skardu: {
     metaDescription:
@@ -171,7 +173,15 @@ const locationCardMap = new Map(locations.map((location) => [location.page, loca
 const details = locationDetails.map((detail) => {
   const slug = detail.page.replace("loc-", "");
   const card = locationCardMap.get(detail.page);
-  const enhancement = destinationEnhancements[slug];
+  const enhancement = destinationEnhancements[slug] ?? {
+    metaDescription: `${detail.name} tour packages, route ideas, and private trip planning with Abid Tour & Travels.`,
+    bestTime: "Contact the agency for current travel timing, weather, and road-condition guidance.",
+    idealFor: ["Families", "Couples", "Private groups"],
+    highlights: [detail.name],
+    travelNotes: ["Ask for season-specific route advice before finalizing travel dates and hotel nights."],
+    localAngle: card?.description ?? detail.about,
+    related: [],
+  };
 
   return {
     slug,
@@ -194,6 +204,7 @@ const details = locationDetails.map((detail) => {
     travelNotes: enhancement.travelNotes,
     localAngle: enhancement.localAngle,
     related: enhancement.related,
+    lastUpdated: contentLastUpdated,
     plans: detail.plans.map((plan) => ({
       ...plan,
       href: "/contact",
@@ -204,12 +215,13 @@ const details = locationDetails.map((detail) => {
 export const siteSettings = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://www.abidtourandtravels.pk",
   locale: "en-PK",
+  lastUpdated: contentLastUpdated,
 };
 
 export const business = {
   name: "Abid Tour & Travels",
   legalName: "Abid Tour & Travels",
-  email: "Abidrasheed.78608@gmail.com",
+  email: "abidtravels1122@gmail.com",
   phone: contactPhone,
   phoneDisplay: contactPhoneDisplay,
   whatsappNumber: contactPhone.replace(/\D/g, ""),
@@ -239,7 +251,7 @@ export const homeHero = {
     "Plan Skardu, Hunza, Swat, Kashmir, Naran Kaghan, and custom northern routes with a travel agency focused on realistic pacing, private transport, and cleaner trip execution.",
   image: legacyHero.image,
   imageAlt: legacyHero.alt,
-  video: "/videos/hero/hero-background.mp4",
+  video: "/videos/hero/hero-snow-mountain-sunset-720.mp4",
   primaryCta: { href: "/locations", label: "Explore Destinations" },
   secondaryCta: { href: "/contact", label: "Plan My Trip" },
 };
@@ -297,6 +309,42 @@ export const rentalsCatalog = rentals.map((rental) => ({
   ...rental,
   href: "/contact",
 }));
+
+export const rentPlanningNotes = [
+  {
+    title: "Match the vehicle to the route",
+    description:
+      "Short city pickups and Murree-side trips usually fit sedans well, while longer northern routes often need more luggage room, ground clearance, or larger cabins for family comfort.",
+  },
+  {
+    title: "Book larger cabins early",
+    description:
+      "Hiace, Grand Cabin, Coaster, and premium SUVs are the first options to tighten during summer holidays, autumn Hunza demand, and mixed-destination family travel.",
+  },
+  {
+    title: "Plan with travel days in mind",
+    description:
+      "The right transport choice depends on passenger count, luggage, children, road profile, and how many long driving days the itinerary includes.",
+  },
+];
+
+export const rentIntentLinks = [
+  {
+    title: "Skardu transport planning",
+    description: "Best for travelers who need stronger vehicles and realistic mountain-day pacing.",
+    href: "/locations/skardu",
+  },
+  {
+    title: "Hunza route guidance",
+    description: "Useful when the vehicle choice depends on a longer scenic northern circuit.",
+    href: "/locations/hunza",
+  },
+  {
+    title: "Swat family road trips",
+    description: "A good reference point for easier mountain travel and family cabin-fit decisions.",
+    href: "/locations/swat",
+  },
+];
 
 export const faqItems = [
   {
