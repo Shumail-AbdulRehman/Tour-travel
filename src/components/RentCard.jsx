@@ -1,8 +1,15 @@
-export function RentCard({ rental }) {
+export function RentCard({ rental, priority = false }) {
   return (
     <article className="rent-card fade-up flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg">
       <div className="relative h-48">
-        <img className="h-full w-full object-cover" loading="lazy" decoding="async" src={rental.image} alt={rental.alt} />
+        <img
+          className="h-full w-full object-cover"
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          src={rental.image}
+          alt={rental.alt}
+        />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-lg font-bold text-navy-800">{rental.name}</h3>

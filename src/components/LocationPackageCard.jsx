@@ -1,13 +1,14 @@
 import { DiscountCornerBadge } from "./DiscountCornerBadge.jsx";
 
-export function LocationPackageCard({ locationPackage }) {
+export function LocationPackageCard({ locationPackage, priority = false }) {
   return (
     <article className="fade-up flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg">
       <div className="relative h-56">
         <img
           className="h-full w-full object-cover"
-          loading="lazy"
+          loading={priority ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
           src={locationPackage.image}
           alt={locationPackage.alt}
         />

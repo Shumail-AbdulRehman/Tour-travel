@@ -3,8 +3,9 @@ export function PageHero({ image, eyebrow, title, description }) {
     <div className="relative min-h-[320px] w-full" style={{ height: "50vh" }}>
       <img
         className="absolute inset-0 h-full w-full object-cover"
-        loading="lazy"
+        loading="eager"
         decoding="async"
+        fetchPriority="high"
         src={image.src}
         alt={image.alt}
       />
