@@ -9,6 +9,7 @@ export function HeroBackgroundMedia({ imageSrc, imageAlt, videoSrc, priority = f
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = navigator.connection?.saveData === true;
+    const isSmallScreen = window.matchMedia("(max-width: 639px)").matches;
 
     if (prefersReducedMotion || saveData) {
       return;
@@ -17,11 +18,11 @@ export function HeroBackgroundMedia({ imageSrc, imageAlt, videoSrc, priority = f
     const startVideo = () => setShouldPlayVideo(true);
 
     if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(startVideo, { timeout: 1200 });
+      const idleId = window.requestIdleCallback(startVideo, { timeout: isSmallScreen ? 1800 : 1200 });
       return () => window.cancelIdleCallback(idleId);
     }
 
-    const timeoutId = window.setTimeout(startVideo, 250);
+    const timeoutId = window.setTimeout(startVideo, isSmallScreen ? 900 : 250);
     return () => window.clearTimeout(timeoutId);
   }, []);
 
@@ -33,6 +34,7 @@ export function HeroBackgroundMedia({ imageSrc, imageAlt, videoSrc, priority = f
         fill
         priority={priority}
         sizes="100vw"
+        quality={72}
         className="object-cover"
       />
       {shouldPlayVideo ? (
@@ -41,7 +43,7 @@ export function HeroBackgroundMedia({ imageSrc, imageAlt, videoSrc, priority = f
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={imageSrc}
           aria-hidden="true"
           disablePictureInPicture

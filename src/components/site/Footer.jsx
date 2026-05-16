@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "./BrandLogo.jsx";
 
 export function Footer({ business, navigation }) {
   const year = new Date().getFullYear();
@@ -7,7 +8,13 @@ export function Footer({ business, navigation }) {
     <footer className="bg-navy-900 px-4 py-12 text-white">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold-300">Abid Tour & Travels</p>
+          <div className="flex items-center gap-3">
+            <BrandLogo className="h-12 w-12 shrink-0" dark />
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-gold-300">Abid Tour & Travels</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">Northern Pakistan Routes</p>
+            </div>
+          </div>
           <h2 className="mt-4 max-w-xl font-display text-3xl font-black">Private route planning built for real northern travel days.</h2>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-white/72">
             Book Northern Pakistan tours, family travel packages, honeymoon routes, and vehicle rentals with a team that

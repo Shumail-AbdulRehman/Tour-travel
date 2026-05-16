@@ -43,8 +43,8 @@ export default function HomePage() {
 
       <section className="relative isolate overflow-hidden bg-navy-950">
         <div
-          className="relative min-h-[50rem]"
-          style={{ minHeight: "max(50rem, 100dvh)" }}
+          className="relative min-h-[42rem] sm:min-h-[50rem]"
+          style={{ minHeight: "100dvh" }}
         >
           <HeroBackgroundMedia
             imageSrc={homeHero.image}
@@ -54,19 +54,21 @@ export default function HomePage() {
           />
           <div className="hero-overlay absolute inset-0" />
           <div
-            className="relative z-10 mx-auto flex min-h-[50rem] max-w-7xl items-center px-4 py-24 sm:px-6 lg:py-32"
-            style={{ minHeight: "max(50rem, 100dvh)" }}
+            className="relative z-10 mx-auto flex min-h-[42rem] max-w-7xl items-center px-4 pb-14 pt-28 sm:min-h-[50rem] sm:px-6 sm:py-24 lg:py-32"
+            style={{ minHeight: "100dvh" }}
           >
             <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase tracking-[0.24em] text-gold-300">{homeHero.eyebrow}</p>
-              <h1 className="mt-5 font-display text-5xl font-black leading-tight text-white sm:text-6xl">
+              <p className="text-[0.72rem] font-bold uppercase tracking-[0.24em] text-gold-300 sm:text-sm">
+                {homeHero.eyebrow}
+              </p>
+              <h1 className="mt-4 max-w-[22rem] font-display text-[2.55rem] font-black leading-[0.94] text-white sm:mt-5 sm:max-w-3xl sm:text-6xl">
                 {homeHero.title}
               </h1>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link href={homeHero.primaryCta.href} className="rounded-full bg-gold-500 px-6 py-3 font-bold text-navy-900 no-underline hover:bg-gold-400">
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link href={homeHero.primaryCta.href} className="rounded-full bg-gold-500 px-5 py-3 text-sm font-bold text-navy-900 no-underline hover:bg-gold-400 sm:px-6 sm:text-base">
                   {homeHero.primaryCta.label}
                 </Link>
-                <Link href={homeHero.secondaryCta.href} className="rounded-full border border-white/20 px-6 py-3 font-bold text-white no-underline hover:border-white/40">
+                <Link href={homeHero.secondaryCta.href} className="rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white no-underline hover:border-white/40 sm:px-6 sm:text-base">
                   {homeHero.secondaryCta.label}
                 </Link>
               </div>
