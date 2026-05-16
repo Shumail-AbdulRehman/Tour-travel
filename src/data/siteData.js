@@ -81,7 +81,6 @@ export const navigationLinks = [
 
 export const hero = {
   image: imagePath("hero-video-poster.webp"),
-  video: "/videos/hero-snow-mountain-sunset-720.mp4",
   alt: "Snowy mountain valley at sunset",
   tagline: "Explore Northern Pakistan",
   title: "Discover the Untamed Beauty of Northern Pakistan",
