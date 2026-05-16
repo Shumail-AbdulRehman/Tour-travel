@@ -94,7 +94,7 @@ function PopularPackages() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredPackages.map((locationPackage) => (
-            <LocationPackageCard key={locationPackage.id} locationPackage={locationPackage} />
+            <LocationPackageCard key={locationPackage.id} locationPackage={locationPackage} priority />
           ))}
         </div>
 
@@ -127,7 +127,7 @@ function FeaturedRentals() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredRentals.map((rental) => (
-            <RentCard key={rental.id} rental={rental} />
+            <RentCard key={rental.id} rental={rental} priority />
           ))}
         </div>
 

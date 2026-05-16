@@ -7,8 +7,9 @@ export function LocationDetailPage({ destination }) {
       <div className="relative h-80 w-full">
         <img
           className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
+          loading="eager"
           decoding="async"
+          fetchPriority="high"
           src={destination.heroImage}
           alt={destination.heroAlt}
         />

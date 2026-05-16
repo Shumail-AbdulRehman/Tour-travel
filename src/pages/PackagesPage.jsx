@@ -50,8 +50,8 @@ export function PackagesPage() {
             className="mb-10"
           />
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            {featuredPackages.map((locationPackage) => (
-              <LocationPackageCard key={locationPackage.id} locationPackage={locationPackage} />
+            {featuredPackages.map((locationPackage, index) => (
+              <LocationPackageCard key={locationPackage.id} locationPackage={locationPackage} priority={index < 3} />
             ))}
           </div>
         </div>
