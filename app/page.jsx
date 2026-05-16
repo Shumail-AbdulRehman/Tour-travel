@@ -44,7 +44,7 @@ export default function HomePage() {
       <section className="relative isolate overflow-hidden bg-navy-950">
         <div
           className="relative min-h-[50rem]"
-          style={{ minHeight: "max(50rem, calc(100dvh - 69px))" }}
+          style={{ minHeight: "max(50rem, 100dvh)" }}
         >
           <HeroBackgroundMedia
             imageSrc={homeHero.image}
@@ -55,7 +55,7 @@ export default function HomePage() {
           <div className="hero-overlay absolute inset-0" />
           <div
             className="relative z-10 mx-auto flex min-h-[50rem] max-w-7xl items-center px-4 py-24 sm:px-6 lg:py-32"
-            style={{ minHeight: "max(50rem, calc(100dvh - 69px))" }}
+            style={{ minHeight: "max(50rem, 100dvh)" }}
           >
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-gold-300">{homeHero.eyebrow}</p>
