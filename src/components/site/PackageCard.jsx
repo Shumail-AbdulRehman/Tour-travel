@@ -33,8 +33,8 @@ export function PackageCard({ travelPackage, showPrice = true }) {
             <li key={audience}>• {audience}</li>
           ))}
         </ul>
-        <div className="mt-6 flex items-center justify-between gap-4">
-          {showPrice ? <p className="font-display text-lg font-black text-navy-700">{travelPackage.price}</p> : <span />}
+        <div className={`mt-6 flex items-center gap-4 ${showPrice ? "justify-between" : "justify-end"}`}>
+          {showPrice ? <p className="font-display text-lg font-black text-navy-700">{travelPackage.price}</p> : null}
           <Link href={travelPackage.href} className="text-sm font-bold text-gold-700 hover:text-navy-900">
             Request quote →
           </Link>
