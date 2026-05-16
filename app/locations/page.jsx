@@ -2,8 +2,9 @@ import { Breadcrumbs } from "../../src/components/site/Breadcrumbs.jsx";
 import { DestinationCard } from "../../src/components/site/DestinationCard.jsx";
 import { PageHero } from "../../src/components/site/PageHero.jsx";
 import { SectionHeading } from "../../src/components/site/SectionHeading.jsx";
+import { StructuredData } from "../../src/components/site/StructuredData.jsx";
 import { destinationGuides, pageArt } from "../../src/lib/site-content.js";
-import { buildMetadata } from "../../src/lib/seo.js";
+import { buildMetadata, getLocationsPageSchemas } from "../../src/lib/seo.js";
 
 export const metadata = buildMetadata({
   title: "Northern Pakistan Destinations & Travel Guides",
@@ -17,6 +18,7 @@ export const metadata = buildMetadata({
 export default function LocationsPage() {
   return (
     <>
+      <StructuredData data={getLocationsPageSchemas()} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Destinations", href: "/locations" }]} />
       <PageHero
         image={pageArt.locationsHero.src}
