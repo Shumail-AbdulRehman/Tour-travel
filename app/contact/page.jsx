@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Breadcrumbs } from "../../src/components/site/Breadcrumbs.jsx";
+import { ContactInquiryForm } from "../../src/components/site/ContactInquiryForm.jsx";
 import { PageHero } from "../../src/components/site/PageHero.jsx";
 import { SectionHeading } from "../../src/components/site/SectionHeading.jsx";
 import { StructuredData } from "../../src/components/site/StructuredData.jsx";
@@ -46,7 +46,7 @@ export default function ContactPage() {
         alt={pageArt.about.alt}
         eyebrow="Contact The Agency"
         title="Talk to the booking desk with the route in mind."
-        description="Contact pages convert better when they reduce friction. This page focuses on clear next steps instead of a fake static form that never actually sends a lead."
+        description="Use the direct form below to send route details, travel timing, and transport needs to the booking desk in one clear inquiry."
         priority
       />
 
@@ -60,7 +60,10 @@ export default function ContactPage() {
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {contactCards.map((card) => (
-              <article key={card.title} className="rounded-[1.75rem] bg-navy-50 p-6 ring-1 ring-navy-100">
+              <article
+                key={card.title}
+                className="rounded-[1.75rem] bg-[linear-gradient(180deg,rgba(248,250,253,0.98),rgba(239,244,251,0.9))] p-6 shadow-[0_18px_40px_-30px_rgba(9,20,40,0.22)] ring-1 ring-navy-100"
+              >
                 <h2 className="text-xl font-black text-navy-900">{card.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{card.description}</p>
                 <a href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noreferrer" : undefined} className="mt-5 inline-flex text-sm font-bold text-gold-700 no-underline hover:text-navy-900">
@@ -74,28 +77,9 @@ export default function ContactPage() {
 
       <section className="bg-navy-50/70 px-4 py-20">
         <div className="mx-auto flex max-w-7xl justify-center">
-          <div className="w-full max-w-4xl rounded-[2rem] bg-white p-8 shadow-[0_28px_70px_-34px_rgba(9,20,40,0.3)] ring-1 ring-navy-100 sm:p-10">
-          <SectionHeading
-            eyebrow="Before You Message"
-            title="The four details that make itinerary replies faster and better."
-            description="If you include these details in your email, WhatsApp message, or call, the route planning discussion becomes much clearer from the first reply."
-            align="left"
-          />
-          <ul className="mt-8 grid gap-4 text-sm leading-7 text-slate-600 sm:grid-cols-2">
-            <li className="rounded-2xl bg-navy-50 px-4 py-4">Travel dates or at least a rough season.</li>
-            <li className="rounded-2xl bg-navy-50 px-4 py-4">Number of travelers and whether children are included.</li>
-            <li className="rounded-2xl bg-navy-50 px-4 py-4">Preferred destination or the kind of scenery you want.</li>
-            <li className="rounded-2xl bg-navy-50 px-4 py-4">Whether you need a full package or only a vehicle with driver.</li>
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/locations" className="rounded-full bg-navy-900 px-6 py-3 font-bold text-white no-underline hover:bg-navy-800">
-              Browse destination guides
-            </Link>
-            <a href={`mailto:${business.email}`} className="rounded-full bg-gold-500 px-6 py-3 font-bold text-navy-900 no-underline hover:bg-gold-400">
-              Email the booking desk
-            </a>
+          <div className="w-full max-w-4xl">
+            <ContactInquiryForm phone={business.phone} phoneDisplay={business.phoneDisplay} />
           </div>
-        </div>
         </div>
       </section>
     </>
