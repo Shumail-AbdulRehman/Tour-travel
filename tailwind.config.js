@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
       colors: {
@@ -22,8 +22,8 @@ export default {
         },
       },
       fontFamily: {
-        body: ["DM Sans", "sans-serif"],
-        display: ["Fraunces", "serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        display: ["var(--font-display)", "serif"],
       },
     },
   },
