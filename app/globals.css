@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: rgb(240 244 250);
+    color: rgb(15 23 42);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgb(212 168 40 / 0.55);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(9, 20, 40, 0.88) 0%,
+      rgba(15, 31, 61, 0.62) 45%,
+      rgba(212, 168, 40, 0.2) 100%
+    );
+  }
+
+  .page-hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(9, 20, 40, 0.88) 0%,
+      rgba(15, 31, 61, 0.48) 55%,
+      rgba(30, 58, 110, 0.18) 100%
+    );
+  }
+}
