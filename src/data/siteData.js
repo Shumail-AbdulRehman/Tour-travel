@@ -604,7 +604,7 @@ export const headOfficeAddress = "Next to Monal, Sakhi Plaza, Murree Rd, Saddar,
 
 export const contactDetails = [
   { label: contactPhoneDisplay, icon: Phone, href: `tel:${contactPhone}` },
-  { label: "Abidrasheed.78608@gmail.com", icon: Mail, href: "mailto:Abidrasheed.78608@gmail.com" },
+  { label: "abidtravels1122@gmail.com", icon: Mail, href: "mailto:abidtravels1122@gmail.com" },
   { label: `Head Office: ${headOfficeAddress}`, icon: MapPin, href: headOfficeMapUrl, external: true },
 ];
 
