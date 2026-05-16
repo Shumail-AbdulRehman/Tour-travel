@@ -39,7 +39,7 @@ export function Footer({ business, navigation }) {
         </div>
 
         <div>
-          <p className="text-sm pl-20 font-bold uppercase tracking-[0.18em] text-gold-300">Leadership</p>
+          <p className="text-sm sm:pl-20 font-bold uppercase tracking-[0.18em] text-gold-300">Leadership</p>
           <div className="mt-4 flex items-start gap-4 sm:gap-5">
             <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[1.6rem]   sm:h-28 sm:w-28">
               <Image
