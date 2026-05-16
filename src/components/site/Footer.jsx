@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ownerPortrait from "../../../media/owner1.jpeg";
+import ownerPortrait from "../../../media/owner1.png";
 import { BrandLogo } from "./BrandLogo.jsx";
 
 export function Footer({ business, navigation }) {
@@ -39,15 +39,15 @@ export function Footer({ business, navigation }) {
         </div>
 
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold-300">Leadership</p>
+          <p className="text-sm pl-20 font-bold uppercase tracking-[0.18em] text-gold-300">Leadership</p>
           <div className="mt-4 flex items-start gap-4 sm:gap-5">
-            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[1.6rem] bg-white/5 ring-1 ring-white/12 sm:h-28 sm:w-28">
+            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-[1.6rem]   sm:h-28 sm:w-28">
               <Image
                 src={ownerPortrait}
                 alt="Portrait of the CEO and Co-Founder of Abid Tour & Travels"
                 fill
                 sizes="(min-width: 640px) 112px, 96px"
-                className="object-cover object-[center_14%]"
+                className="object-cover object-[center_14%] pt-3"
               />
             </div>
             <div className="min-w-0 pt-1">

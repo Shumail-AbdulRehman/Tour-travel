@@ -81,11 +81,11 @@ export default function HomePage() {
 
       <section className="bg-white px-4 py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading
+          {/* <SectionHeading
             eyebrow="What We Plan"
             title="High-intent travel pages built around routes people actually book."
             description="The site now targets destination-specific and conversion-focused intent instead of hiding every route behind hash navigation. That means clearer destination pages, better crawlability, and more precise ranking signals for Skardu, Hunza, Swat, Kashmir, and other core searches."
-          />
+          /> */}
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {internalGuides.map((guide) => (
               <article key={guide.href} className="rounded-[1.75rem] bg-navy-50 p-6 ring-1 ring-navy-100">
@@ -102,11 +102,11 @@ export default function HomePage() {
 
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading
+          {/* <SectionHeading
             eyebrow="Popular Tours"
             title="Destination packages that convert well because the route is easy to understand."
             description="These pages balance search intent, scenic appeal, and practical itinerary planning, which makes them strong candidates for both organic rankings and booking inquiries."
-          />
+          /> */}
           <div className="mt-12 grid gap-8 lg:grid-cols-3">
             {featuredLocationPackages.slice(0, 3).map((travelPackage, index) => (
               <LocationPackageCard key={travelPackage.id} travelPackage={travelPackage} priority={index === 0} />
@@ -153,12 +153,12 @@ export default function HomePage() {
 
       <section className="bg-navy-900 px-4 py-20 text-white">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading
+          {/* <SectionHeading
             eyebrow="How Planning Works"
             title="Cleaner execution from the first inquiry to the final drop-off."
             description="Travelers looking for Skardu tours, Hunza holidays, family travel packages, or a private driver usually need quick clarity: how many days, which route, what vehicle, and how hard the travel days will feel. The process below keeps those decisions simple."
             align="left"
-          />
+          /> */}
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {planningSteps.map((item) => (
               <article key={item.step} className="rounded-[1.75rem] bg-white/10 p-6 backdrop-blur">
