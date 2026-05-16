@@ -210,7 +210,7 @@ export const siteSettings = {
 export const business = {
   name: "Abid Tour & Travels",
   legalName: "Abid Tour & Travels",
-  email: "info@abidtourandtravels.pk",
+  email: "Abidrasheed.78608@gmail.com",
   phone: contactPhone,
   phoneDisplay: contactPhoneDisplay,
   whatsappNumber: contactPhone.replace(/\D/g, ""),
