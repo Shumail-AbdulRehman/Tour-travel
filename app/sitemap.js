@@ -1,41 +1,42 @@
 import { getLocationsSitemapEntries } from "../src/lib/seo.js";
 import { absoluteUrl } from "../src/lib/seo.js";
+import { siteSettings } from "../src/lib/site-content.js";
 
 export default function sitemap() {
   return [
     {
       url: absoluteUrl("/"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: absoluteUrl("/locations"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: absoluteUrl("/packages"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/rent"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/about"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: absoluteUrl("/contact"),
-      lastModified: new Date(),
+      lastModified: siteSettings.lastUpdated,
       changeFrequency: "monthly",
       priority: 0.7,
     },
